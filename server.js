@@ -6,11 +6,12 @@ var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-var config={
-	user: 'postgres',
-	database: 'postgres',
-	host: 'localhost',
-	password: 123
+var config = {
+    user: 'anurag899',
+    database: 'anurag899',
+    host: 'db.imad.hasura-app.io',
+    port: '5432',
+    password: process.env.DB_PASSWORD
 };
 
 if (typeof Promise == 'undefined') {
