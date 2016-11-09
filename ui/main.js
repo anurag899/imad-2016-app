@@ -32,7 +32,7 @@ function loadLoginForm () {
         var password = document.getElementById('password').value;
         console.log(username);
         console.log(password);
-        request.open('POST', 'http://localhost:5000/login', true);
+        request.open('POST', '/login', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username: username, password: password}));  
         submit.value = 'Logging in...';
@@ -66,7 +66,7 @@ function loadLoginForm () {
         var password = document.getElementById('password').value;
         console.log(username);
         console.log(password);
-        request.open('POST', 'http://localhost:5000/create-user', true);
+        request.open('POST', '/create-user', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username: username, password: password}));  
         register.value = 'Registering...';
@@ -94,7 +94,7 @@ function checkLogin(){
 	            }
 	        }
         };
-    request.open('GET', 'http://localhost:5000/check-login', true);
+    request.open('GET', '/check-login', true);
     request.send(null);
 }
 
@@ -132,7 +132,7 @@ function fetchArticle(){
 	 	}
 	 
 	 };
-	request.open('GET','http://localhost:5000/getArticle',true);
+	request.open('GET','/getArticle',true);
 	request.send(null);
 }
 
@@ -156,7 +156,7 @@ function fetchList(){
 	 	}
 	 
 	 };
-	request.open('GET','http://localhost:5000/getList',true);
+	request.open('GET','/getList',true);
 	request.send(null);
 }
 
