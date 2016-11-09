@@ -159,16 +159,16 @@ function getArticle(title){
 				        "</div>"+
 				      "</nav>"+
 				        "<div class='container' style='height:100%;margin-top:50px;'>"+		
-				    		"<h4>Author:   "+title+"</h4>"+
+				    		"<h4>Author:   <span id='name' class='label label-primary' >"+title+"</span></h4>"+
 				        	"<div class='form-group'>"+
 							  "<label for='usr'>Title:</label>"+
-  								"<input type='text' class='form-control' id='usr' placeholder='Write your title'>"+
+  								"<input type='text' class='form-control' id='title' placeholder='Write your title'>"+
 							"</div>"+
 				        	"<div class='form-group'>"+
 							  "<label for='comment'>Write Here:</label>"+
-  								"<textarea class='form-control' rows='10' placeholder='Tell your story'></textarea>"+
+  								"<textarea class='form-control' rows='10' id='content' placeholder='Tell your story'></textarea>"+
 							"</div>"+
-							"<input type='submit' value='submit'>"
+							"<input type='submit' id='sub_article' value='submit'>"
 				        "<footer class='container-fluid text-center' style='margin-right:0;margin-left:0;background-color:#e7e7e7;color:black;'>"+
 					          "<p>Copyright@ anur@g</p>"+
 					     "</footer>"+
@@ -222,6 +222,39 @@ app.get('/writeStory', function (req, res) {
         res.status(403).send('Only logged in users can write');
     }
 });
+
+app.post('/submit-article', function (req, res) {
+   // Check if the user is logged in
+    if (req.session && req.session.auth && req.session.auth.userId) {
+        // First check if the article exists and get the article-id
+        pool.query('SELECT username from "user" where id = $1', [req.session.auth.userId], function (err, result) {
+            if (err) {
+                res.status(500).send(err.toString());
+            } else {
+                if (result.rows.length === 0) {
+                    res.status(400).send('Article not found');
+                } else {
+                    var username = result.rows[0].username;
+                    var date=Date();
+                    // Now insert the right comment for this article
+                    pool.query(
+                        "INSERT INTO 'article' (title, heading,date, content) VALUES ($1, $2, $3)",
+                        [username,req.body.title,date,req.body.content],
+                        function (err, result) {
+                            if (err) {
+                                res.status(500).send(err.toString());
+                            } else {
+                                res.status(200).send('Article insterted!')
+                            }
+                        });
+                }
+            }
+       });     
+    } else {
+        res.status(403).send('Only logged in users can comment');
+    }
+});
+
 
 var names=[];
 app.get('/submit',function(req,res){

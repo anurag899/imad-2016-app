@@ -111,24 +111,23 @@ function fetchArticle(){
 	 		  var blogs='',i;
 	 		  var list='';
 	 		  for(i=0;i<names.length;i++){
-				var content="<h4><small>RECENT POSTS</small></h4>"+
-			    "<hr>"+
-			    "<h2 id ='title-one'>"+names[i].heading+"</h2>"+
-			    "<h5 ><span class='glyphicon glyphicon-time'></span><span id='date-one'>"+" "+names[i].date+"</span> </h5>"+
-			    "<h5 ><span id='auth-one' class='label label-primary'>"+names[i].title+"</span></h5><br>"+
-			    "<p id ='content-one'>"+names[i].content.substring(0,300)+"..."+
-			    "<a href='/articles/"+names[i].title+"'>"+
-			    "Read more</a>"+
-			    "</p>"+
-			    "<br><br>";
+				var content=
+          "<div style='padding-bottom:15px;' class='w3-container w3-padding-8'>"+
+              "<h3><b>"+names[i].heading+"</b></h3>"+
+              "<h5><span id='auth-one' class='label label-primary'>"+names[i].title+"</span> <span class='w3-opacity'>"+names[i].date+"</span></h5>"+
+            "</div>"+
+            "<div class='w3-container'>"+
+              "<p style='text-algin'>"+names[i].content+"</p>"+
+              "<div class='w3-row'>"+
+                "<div class='w3-col m8 s12'>"+
+                  "<p><a href='/articles/"+names[i].title+"' class='w3-btn w3-padding-large w3-white w3-border w3-hover-border-black'><b>READ MORE »</b></a></p>"+
+                "</div>"+
+              "</div>"+
+            "</div>";
 	 		  	blogs+=content+"<hr>";
-	 		  	list+="<li><a href=''>"+names[i].heading+"</a></li>";
 	 		  }
 	 		 	var blog=document.getElementById('blog');
-	 		  	blog.innerHTML=blogs;
-	 		  	var blist=document.getElementById('list');
-	 		  	blist.innerHTML=list;
-	 		}
+	 		  	blog.innerHTML=blogs;	 		}
 	 	}
 	 
 	 };
@@ -160,6 +159,38 @@ function fetchList(){
 	request.send(null);
 }
 
+function writeStory(){
+  var subArticle=document.getElementById('sub_article');
+  subArticle.onclick=function(){
+    alert("hello");
+      /*var request = new XMLHttpRequest();
+        
+        // Capture the response and store it in a variable
+        request.onreadystatechange = function () {
+          if (request.readyState === XMLHttpRequest.DONE) {
+              // Take some action
+              if (request.status === 200) {
+                  alert('successfully submit !');
+              } else if(request.status===403) {
+                  alert('us');
+              }
+              else{
+                //alert('use');
+              }
+          }
+        };
+        
+        // Make the request
+        var title = document.getElementById('title').value;
+        var content = document.getElementById('content').value;
+        console.log(title);
+        console.log(content);
+        request.open('POST', 'http://localhost:5000/submit-article', true);
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.send(JSON.stringify({title: title, content: content}));  
+    };*/
+}
+}
 //for login check
 checkLogin();
 
