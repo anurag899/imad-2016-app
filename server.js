@@ -14,10 +14,6 @@ var config = {
     password: process.env.DB_PASSWORD
 };
 
-if (typeof Promise == 'undefined') {
-  global.Promise = require('promise-polyfill')
-}
-
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json()); 
