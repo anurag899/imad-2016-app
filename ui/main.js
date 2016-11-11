@@ -34,7 +34,7 @@ function loadLoginForm () {
         console.log(password);
         
         
-        request.open('POST', '/login', true);  
+        request.open('POST', '/login', false);  
         request.setRequestHeader("Content-Type", "application/json");
         request.send(JSON.stringify({username: username, password: password}));
         submit.value = 'Logging in...';
@@ -69,7 +69,7 @@ function loadLoginForm () {
         console.log(username);
         console.log(password);
         
-        request.open('POST', '/create-user', true); 
+        request.open('POST', '/create-user', false); 
         
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username: username, password: password})); 
