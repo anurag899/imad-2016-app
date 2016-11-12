@@ -158,11 +158,11 @@ function getArticle(title){
 				        "<div class='container' style='height:100%;margin-top:50px;'>"+		
 				    		"<h4>Author:   <span id='name' class='label label-primary' >"+title+"</span></h4>"+
 				        	"<div class='form-group'>"+
-							  "<label for='usr'>Title:</label>"+
+							  "<label for='title'>Title:</label>"+
   								"<input type='text' class='form-control' id='title' placeholder='Write your title'>"+
 							"</div>"+
 				        	"<div class='form-group'>"+
-							  "<label for='comment'>Write Here:</label>"+
+							  "<label for='content'>Write Here:</label>"+
   								"<textarea class='form-control' rows='10' id='content' placeholder='Tell your story'></textarea>"+
 							"</div>"+
 							"<input type='submit' id='sub_article' value='submit'>"
