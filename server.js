@@ -232,16 +232,16 @@ app.post('/submit-article', function (req, res) {
                     res.status(400).send('Article not found');
                 } else {
                     var username = result.rows[0].username;
-                    var date=Date();
+                    var date = new Date();
                     // Now insert the right comment for this article
                     pool.query(
-                        "INSERT INTO 'article' (title, heading,date, content) VALUES ($1, $2, $3)",
+                        'INSERT INTO "article" (title, heading,date, content) VALUES ($1, $2,$3,$4)',
                         [username,req.body.title,date,req.body.content],
                         function (err, result) {
                             if (err) {
                                 res.status(500).send(err.toString());
                             } else {
-                                res.status(200).send('Article insterted!')
+                                res.send('Article insterted!');
                             }
                         });
                 }
