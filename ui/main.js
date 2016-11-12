@@ -151,7 +151,7 @@ function fetchList(){
 	 		  names=JSON.parse(names);
 	 		  var list='';
 	 		  for(i=0;i<names.length;i++){
-				list+="<li><a href='/articles/"+names[i].title+"'>"+names[i].heading+"</a></li>";
+				list+="<li><a href='/articles/"+names[i].heading+"'>"+names[i].heading+"</a></li>";
 	 		  }
 	 		 	var blist=document.getElementById('list');
 	 		  	blist.innerHTML=list;
