@@ -88,7 +88,7 @@ function createTemp(data){
 				        	"<span class=' text-center' style='padding:0 30px 0 30px;'><h1>"+ heading +"</h1>"+
 				        	"<div>"+ date.toDateString() +"</div>"+
 				        	"<h5 ><span class='label label-primary'>"+title+"</span></h5><br></span>"+
-				        	"<div style='font-size:22px;font-family:verdana;text-align:justify;margin-top:60px;padding:0 90px 300px 90px; text-justify: inter-word;'>"	+
+				        	"<div style='font-size:22px;font-family:verdana;text-align:justify;margin-top:60px;padding:0 150px 300px 150px;font-size:18px; text-justify: inter-word;'>"	+
 				        	 content +"</div>"+
 				        "</div>"+
 				        "<footer class='container-fluid text-center' style='margin-right:0;margin-left:0;background-color:#e7e7e7;color:black;'>"+
