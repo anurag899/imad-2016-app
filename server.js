@@ -236,7 +236,7 @@ app.post('/submit-article', function (req, res) {
                     // Now insert the right comment for this article
                     pool.query(
                         'INSERT INTO "article" (title, heading,date, content) VALUES ($1, $2,$3,$4)',
-                        [username,req.body.title,date,req.body.content],
+                        [username,req.body.title,date.toDateString(),req.body.content],
                         function (err, result) {
                             if (err) {
                                 res.status(500).send(err.toString());
