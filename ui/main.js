@@ -124,7 +124,7 @@ function fetchArticle(){
               "<p style='text-algin'>"+names[i].content.substring(0,300)+"....</p>"+
               "<div class='w3-row'>"+
                 "<div class='w3-col m8 s12'>"+
-                  "<p><a href='/articles/"+names[i].title+"' class='w3-btn w3-padding-large w3-white w3-border w3-hover-border-black'><b>READ MORE »</b></a></p>"+
+                  "<p><a href='/articles/"+names[i].heading+"' class='w3-btn w3-padding-large w3-white w3-border w3-hover-border-black'><b>READ MORE »</b></a></p>"+
                 "</div>"+
               "</div>"+
             "</div>";
