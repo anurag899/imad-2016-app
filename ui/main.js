@@ -166,8 +166,8 @@ function fetchList(){
 function writeStory(){
   var subArticle=document.getElementById('sub_article');
   subArticle.onclick=function(){
-    alert("hello");
-      /*var request = new XMLHttpRequest();
+        alert("hello");
+      var request = new XMLHttpRequest();
         
         // Capture the response and store it in a variable
         request.onreadystatechange = function () {
@@ -189,11 +189,10 @@ function writeStory(){
         var content = document.getElementById('content').value;
         console.log(title);
         console.log(content);
-        request.open('POST', 'http://localhost:5000/submit-article', true);
+        request.open('POST', '/submit-article', false);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({title: title, content: content}));  
-    };*/
-}
+    };
 }
 //for login check
 checkLogin();
