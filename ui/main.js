@@ -163,7 +163,7 @@ function fetchList(){
 	request.send(null);
 }
 
-
+function writeStory(){
   var subArticle=document.getElementById('sub_article');
   subArticle.onclick=function(){
         alert("hello");
@@ -193,6 +193,7 @@ function fetchList(){
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({title: title, content: content}));  
     };
+}
 //for login check
 checkLogin();
 
