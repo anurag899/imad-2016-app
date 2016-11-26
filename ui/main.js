@@ -166,7 +166,6 @@ function fetchList(){
 function writeStory(){
   var subArticle=document.getElementById('sub_article');
   subArticle.onclick=function(){
-        alert("hello");
       var request = new XMLHttpRequest();
         
         // Capture the response and store it in a variable
@@ -175,6 +174,7 @@ function writeStory(){
               // Take some action
               if (request.status === 200) {
                   alert('successfully submit !');
+                  window.open("http://anurag899.imad.hasura-app.io");
               } else if(request.status===403) {
                   alert('us');
               }
