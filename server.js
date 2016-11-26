@@ -431,7 +431,7 @@ app.get('/getArticle',function(req,res){
 });
 
 app.get('/getList',function(req,res){
-	pool.query("SELECT heading,title FROM article ORDER BY id DESC limit 20",
+	pool.query("SELECT heading,title FROM article ORDER BY id DESC limit 10",
 		function(err,result){
 			if(err){
 				res.status(500).send(err.toString());
