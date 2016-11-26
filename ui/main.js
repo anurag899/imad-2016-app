@@ -174,7 +174,7 @@ function writeStory(){
               // Take some action
               if (request.status === 200) {
                   alert('successfully submit !');
-                  window.open("http://anurag899.imad.hasura-app.io");
+                  window.location.assign("/");
               } else if(request.status===403) {
                   alert('us');
               }
